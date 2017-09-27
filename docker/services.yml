@@ -1,0 +1,45 @@
+version: "3.2"
+
+services:
+ fullstackmongo:
+  image: mongo:3.4
+  ports:
+   - "27017:27017"
+  volumes:
+   - "fullstackmongovolume:/data/db"
+
+ fullstackmongoexpress:
+  image: mongo-express
+  ports:
+   - "8081:8081"
+  links:
+   - "fullstackmongo:mongo"
+
+ fullstackmysql:
+  image: mysql
+  ports:
+   - "3306:3306"
+  environment:
+   MYSQL_ROOT_PASSWORD: admin
+  volumes:
+   - "fullstackmysqlvolume:/var/lib/mysql"
+
+ fullstackphpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  ports:
+   - "8090:80"
+  links:
+   - "fullstackmysql:db"
+
+ initializeMysql:
+  image: imega/mysql-client
+  links:
+   - "fullstackmysql:db"
+  volumes:
+   - "./data:/opt/data"
+  command: mysql --host=db --user=root --password=admin --database=mysql --execute='source /opt/data/initial-data.sql;'
+
+volumes:
+ fullstackmysqlvolume:
+
+ fullstackmongovolume:

@@ -120,10 +120,6 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-### Docker
-docker/*
-!docker/services.yml
-
 ###Web
 node_modules/
 
