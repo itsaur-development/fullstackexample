@@ -1,0 +1,7 @@
+plugins {
+    id "java"
+    id 'org.springframework.boot' version '1.5.4.RELEASE' apply false
+    id "com.moowork.node" version "1.1.1" apply false
+}
+
+sourceCompatibility = 1.8

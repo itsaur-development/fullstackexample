@@ -1,0 +1,4 @@
+rootProject.name = 'full-stack-example'
+include 'web-server'
+include 'web-client'
+

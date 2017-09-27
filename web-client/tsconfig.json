@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "baseUrl": "./"
+  },
+  "exclude": [
+    "node_modules",
+    "../node_modules",
+    "./node_modules"
+  ],
+  "compileOnSave": false
+}
