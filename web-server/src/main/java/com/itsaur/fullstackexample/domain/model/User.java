@@ -7,16 +7,16 @@ import com.itsaur.fullstackexample.domain.model.event.UserUpdatedEvent;
 import java.util.UUID;
 
 /**
- * This is an Entity so it is mutable and has an id in order to uniquely reference this.
+ * This is an Entity so it is mutable and has an id.
  *
  * This class handles all the business logic for a single User Entity. For example it could
  * have a method change password that would check if the password is valid etc.
  *
  * Cross-entity business logic goes to ApplicationServices.
  *
- * It doesn't expose setters for each property only business methods that can change its state
- * for a simple update that would be the {@link #update(String, String)} method, we could have
- * a lock()/unlock() method that lock the user etc.
+ * It doesn't expose setters for each property only business methods that can change its state.
+ * For a simple update that would be the {@link #update(String, String)} method, we could have
+ * a lock()/unlock() method that locks the user etc.
  */
 public class User {
 

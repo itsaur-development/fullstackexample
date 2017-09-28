@@ -25,7 +25,7 @@ import java.util.Collections;
 public class UserConfiguration {
 
     /**
-     * Everything that is passed in the method will be injected by spring here the userRepository is retrieved by
+     * Everything that is passed in the method will be injected by spring. Here the userRepository is retrieved by
      * the {@link #userRepository(EntityManager)} method from this configuration.
      */
     @Bean
@@ -35,7 +35,7 @@ public class UserConfiguration {
 
     /**
      * If we wanted to change the underlying implementation we could simply return a different one like an InMemoryUserRepository
-     * that stores everything in memory and flushes them periodically to a file (or by using Hazelcast).
+     * that stores everything in memory and flushes them periodically to a file (or use Hazelcast).
      *
      **/
     @Bean
@@ -61,7 +61,7 @@ public class UserConfiguration {
     }
 
     /**
-     * Since this is a collection spring will set the value of the parameter to all registered @Bean that implement DomainEventListener class.
+     * Since this is a collection, spring will set the value of the parameter to all registered @Bean that implement DomainEventListener class.
      */
     @Bean
     public DomainEventPublisher eventPublisher(DomainEventListener[] listeners) {

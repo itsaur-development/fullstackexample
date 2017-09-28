@@ -10,7 +10,7 @@ spring:
 
   datasource:
   # You can connect to oracle DB by using the following url: jdbc:oracle:thin:@//localhost:1521/fullstack
-  # the oracle driver is already included in the project dependencies and JPA is RDBMS agnostic.
+  # The oracle driver is already included in the project dependencies and JPA is RDBMS agnostic.
     url: jdbc:mysql://localhost:3306/fullstack?useSSL=false
     username: root
     password: admin

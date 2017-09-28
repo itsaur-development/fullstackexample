@@ -71,7 +71,7 @@ public class UserApplicationService {
 
         user.update(command.name(), command.lastname());
 
-        //Note that normal flows wherever possible shouldn't be inside an if statement, makes the code
+        //Note that normal flows wherever possible shouldn't be inside an if statement, that makes the code
         //more readable and removes deep nesting levels.
         if (user.changes().isEmpty()) {
             return;

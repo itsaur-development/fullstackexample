@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * The controller MUST ONLY BE CONCERNED with the PROTOCOL handling. Since this is
  * a REST controller its only job must be to listen to REST endpoints convert the data and call
- * the appropriate method of the {@link UserApplicationService}.
+ * the appropriate method of an ApplicationService.
  */
 @RestController
 @RequestMapping("/users")
