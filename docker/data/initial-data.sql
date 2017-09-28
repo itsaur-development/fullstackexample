@@ -1,1 +1,3 @@
 CREATE DATABASE IF NOT EXISTS fullstack;
+USE fullstack;
+CREATE TABLE IF NOT EXISTS users (user_id VARCHAR(37) PRIMARY KEY, user_name VARCHAR(20), user_lastname VARCHAR(20));

@@ -1,4 +1,4 @@
-package com.itsaur.fullstackexample.infrastructure.spring;
+package com.itsaur.fullstackexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

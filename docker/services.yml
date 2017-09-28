@@ -16,7 +16,7 @@ services:
    - "fullstackmongo:mongo"
 
  fullstackmysql:
-  image: mysql
+  image: mysql:5
   ports:
    - "3306:3306"
   environment:

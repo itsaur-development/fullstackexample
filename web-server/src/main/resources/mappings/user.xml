@@ -4,4 +4,22 @@
                  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/orm_2_1.xsd"
                  version="2.1">
 
+    <!-- We use xml configuration in order to keep our model decoupled from JPA annotations -->
+    <entity class="com.itsaur.fullstackexample.domain.model.User" access="FIELD">
+        <table name="users"/>
+        <attributes>
+            <id name="id">
+                <column name="user_id"/>
+            </id>
+            <basic name="name">
+                <column name="user_name"/>
+            </basic>
+            <basic name="lastname">
+                <column name="user_lastname" />
+            </basic>
+
+            <transient name="changes" />
+        </attributes>
+    </entity>
+
 </entity-mappings>

@@ -71,6 +71,7 @@ dependencyManagement {
 dependencies {
     //Common
     compile 'com.google.guava:guava'
+    compile 'org.apache.commons:commons-lang3'
 
     //Spring
     compile 'org.springframework.boot:spring-boot-starter'

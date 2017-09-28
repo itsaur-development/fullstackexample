@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
+        <!-- For more appenders see https://logging.apache.org/log4j/2.x/manual/appenders.html -->
         <Console name="DebugConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{DATE} [%-36X{__log__uuid__}] @%level{length=1} %msg [%c{1.}][%t] %n"/>
         </Console>
