@@ -9,10 +9,7 @@ import com.itsaur.fullstackexample.domain.application.UserUpdateCommand;
 import com.itsaur.fullstackexample.domain.model.User;
 import com.itsaur.fullstackexample.domain.model.UserRepository;
 import com.itsaur.fullstackexample.infrastructure.jpa.JpaUserRepository;
-import com.itsaur.fullstackexample.infrastructure.rest.UserController;
-import com.itsaur.fullstackexample.infrastructure.rest.UserCreateCommandMixin;
-import com.itsaur.fullstackexample.infrastructure.rest.UserMixin;
-import com.itsaur.fullstackexample.infrastructure.rest.UserUpdateCommandMixin;
+import com.itsaur.fullstackexample.infrastructure.rest.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -73,6 +70,11 @@ public class UserConfiguration {
         Arrays.stream(listeners).forEach(eventPublisher::register);
 
         return eventPublisher;
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        return new CorsFilter();
     }
 
     @Bean

@@ -1,0 +1,23 @@
+<md-content flex layout="column" layout-align="start start">
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>Users</span>
+        </div>
+    </md-toolbar>
+    <md-list flex>
+        <md-list-item ng-repeat="user in $$userController.users" layout="row" layout-align="start center">
+            <span>{{user.name}}</span>
+            <md-button>
+                <md-icon md-font-set="material-icons">&#xE150;</md-icon>
+            </md-button>
+        </md-list-item>
+    </md-list>
+
+    <md-fab-speed-dial>
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn">
+                <md-icon md-font-set="material-icons">&#xE145;</md-icon>
+            </md-button>
+        </md-fab-trigger>
+    </md-fab-speed-dial>
+</md-content>
