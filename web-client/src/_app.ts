@@ -6,6 +6,7 @@ angular.module(ID, [
     "ui.router",
     "ngMaterial",
     userID
-]).config(($urlRouterProvider: angular.ui.IUrlRouterProvider) => {
-    $urlRouterProvider.when("", "/main/users");
-});
+])
+    .config(($urlRouterProvider: angular.ui.IUrlRouterProvider) => {
+        $urlRouterProvider.when("", "/main/users");
+    });

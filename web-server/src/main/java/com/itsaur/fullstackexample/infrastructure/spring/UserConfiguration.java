@@ -1,5 +1,6 @@
 package com.itsaur.fullstackexample.infrastructure.spring;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itsaur.fullstackexample.domain.DomainEvent;
 import com.itsaur.fullstackexample.domain.DomainEventListener;
 import com.itsaur.fullstackexample.domain.DomainEventPublisher;
@@ -8,6 +9,8 @@ import com.itsaur.fullstackexample.domain.application.UserCreateCommand;
 import com.itsaur.fullstackexample.domain.application.UserUpdateCommand;
 import com.itsaur.fullstackexample.domain.model.User;
 import com.itsaur.fullstackexample.domain.model.UserRepository;
+import com.itsaur.fullstackexample.domain.model.event.UserCreatedEvent;
+import com.itsaur.fullstackexample.domain.model.event.UserUpdatedEvent;
 import com.itsaur.fullstackexample.infrastructure.jpa.JpaUserRepository;
 import com.itsaur.fullstackexample.infrastructure.rest.*;
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import javax.persistence.EntityManager;
 import java.util.Arrays;
@@ -57,7 +61,11 @@ public class UserConfiguration {
         return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder
                 .mixIn(User.class, UserMixin.class)
                 .mixIn(UserCreateCommand.class, UserCreateCommandMixin.class)
-                .mixIn(UserUpdateCommand.class, UserUpdateCommandMixin.class);
+                .mixIn(UserUpdateCommand.class, UserUpdateCommandMixin.class)
+                .mixIn(DomainEvent.class, DomainEventMixin.class)
+                .mixIn(UserCreatedEvent.class, UserCreatedEventMixin.class)
+                .mixIn(UserUpdatedEvent.class, UserUpdatedEventMixin.class);
+
     }
 
     /**
@@ -93,5 +101,10 @@ public class UserConfiguration {
                 return Collections.singleton(DomainEvent.class);
             }
         };
+    }
+
+    @Bean
+    public DomainEventListener websocketDomainEventListener(SimpMessagingTemplate template, ObjectMapper mapper) {
+        return new WebSocketDomainEventListener(template, mapper);
     }
 }

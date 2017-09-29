@@ -37,8 +37,8 @@ public class JpaUserRepository implements UserRepository {
 
         // You can do where queries:
         // e.g. query.where(builder.equal(from.get("name"), "A"));
-        // Order by
-        // e.g query.orderBy(builder.asc(from.get("name")));
+
+        query.orderBy(builder.asc(from.get("name")));
 
         return entityManager.createQuery(query).getResultList();
     }
