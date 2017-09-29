@@ -1,0 +1,33 @@
+<md-dialog class="edit-user">
+    <form name="userForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Edit user</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content layout="column" layout-align="start center" layout-padding>
+            <md-input-container class="md-block">
+                <label>Name</label>
+                <input name="name" required ng-model="$$editUserController.user.name">
+                <div ng-messages="userForm.name.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Last Name</label>
+                <input name="lastname" ng-model="$$editUserController.user.lastname">
+            </md-input-container>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="$$editUserController.save(userForm)">
+                Save
+            </md-button>
+            <md-button ng-click="$$editUserController.close()">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

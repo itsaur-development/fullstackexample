@@ -1,23 +1,34 @@
-<md-content flex layout="column" layout-align="start start">
+<md-card layout="column" layout-align="start start" class="users">
     <md-toolbar layout="row" class="md-hue-3">
         <div class="md-toolbar-tools">
-            <span>Users</span>
-        </div>
-    </md-toolbar>
-    <md-list flex>
-        <md-list-item ng-repeat="user in $$userController.users" layout="row" layout-align="start center">
-            <span>{{user.name}}</span>
-            <md-button>
-                <md-icon md-font-set="material-icons">&#xE150;</md-icon>
-            </md-button>
-        </md-list-item>
-    </md-list>
-
-    <md-fab-speed-dial>
-        <md-fab-trigger>
-            <md-button aria-label="menu" class="md-fab md-warn">
+            <span flex>Users</span>
+            <md-button class="toolbar-button md-fab md-accent" ng-click="$$userController.createUser()">
                 <md-icon md-font-set="material-icons">&#xE145;</md-icon>
             </md-button>
-        </md-fab-trigger>
-    </md-fab-speed-dial>
-</md-content>
+            <md-button class="toolbar-button md-fab md-primary" ng-click="$$userController.reload()">
+                <md-icon md-font-set="material-icons">&#xE5D5;</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-table-container>
+        <table md-table>
+            <thead md-head>
+            <tr md-row>
+                <th md-column><span>Name</span></th>
+                <th md-column><span>Last name</span></th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="user in $$userController.users">
+                <td md-cell>{{user.name}}</td>
+                <td md-cell>{{user.lastname}}</td>
+                <td>
+                    <md-button class="md-icon-button" ng-click="$$userController.editUser(user)">
+                        <md-icon md-font-set="material-icons">&#xE150;</md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+</md-card>

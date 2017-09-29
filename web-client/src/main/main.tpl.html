@@ -1,4 +1,4 @@
-<div flex layout="column" layout-align="start start">
+<div layout="column" layout-fill layout-align="start stretch">
     <md-toolbar>
         <div class="md-toolbar-tools">
             <!-- for more icons check https://material.io/icons/ -->
@@ -6,5 +6,7 @@
             <h2 flex md-truncate>Fullstack Example</h2>
         </div>
     </md-toolbar>
-    <div ui-view flex></div>
+    <div layout="row">
+        <div ui-view flex-offset="20" flex="60" flex-sm="100" flex-xs="100" flex-offset-sm="0" flex-offset-xs="0"></div>
+    </div>
 </div>

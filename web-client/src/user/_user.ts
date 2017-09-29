@@ -7,6 +7,7 @@ import {HttpUserRepository} from "./HttpUserRepository";
 
 angular.module(ID, [
     "ui.router",
+    'md.data.table',
     mainID
 ])
     .service("$$userRepository", HttpUserRepository)
