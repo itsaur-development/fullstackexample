@@ -7,7 +7,7 @@ Install the following
 - [Docker Compose](https://docs.docker.com/compose/install/) (on windows it is installed along with docker)
 - [NodeJS](https://nodejs.org/en/)
 
-###### Run docker
+##### Run docker
 
 Go to ./docker folder and run
 
@@ -15,18 +15,18 @@ Go to ./docker folder and run
 
 Run "docker-compose -f services.yml stop" to stop docker
 
-###### Import project to IDE
+##### Import project to IDE
 Most java IDEs support importing maven projects. 
 
 - Intellij: File->Open and select the root project folder.
 - eclipse: File->Import select Gradle Project and import the root project folder.
 
-###### Run the server
+##### Run the server
 From your IDE run Application class from web-server project or run ./gradlew bootRun
 
 It will open a server that runs on http://localhost:8080
 
-#### Run the client
+##### Run the client
 - Run ./gradlew npmInstall
 - Run ./gradlew webpackDevServer
 
